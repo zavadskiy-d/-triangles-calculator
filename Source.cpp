@@ -62,8 +62,7 @@ int main(void)
 	for (;;) {
 		if (option[i] == 0)
 			break;
-		switch (option[i])
-		{
+		switch (option[i]){
 		case 1: printf("¬ведите сторону а: "); scanf("%f", &a); num[1] = a; break;
 		case 2: printf("¬ведите сторону b: "); scanf("%f", &b); num[2] = b; break;
 		case 3: printf("¬ведите сторону с: "); scanf("%f", &c); num[3] = c; break;
@@ -89,34 +88,26 @@ int main(void)
 		three_sides(a, b, c, num);
 	}
 	else if (a == INF || b == INF || c == INF) {
-		if (s > 0)
-		{
+		if (s > 0){
 			num[19] = s;
-			if (a > 0 && b > 0)
-			{
+			if (a > 0 && b > 0){
 				two_sides_s(3, num);
 			}
-			if (a > 0 && c > 0)
-			{
+			if (a > 0 && c > 0){
 				two_sides_s(2, num);
 			}
-			if (c > 0 && b > 0)
-			{
+			if (c > 0 && b > 0){
 				two_sides_s(1, num);
 			}
 		}
-		if (p > 0)
-		{
-			if (a > 0 && b > 0)
-			{
+		if (p > 0){
+			if (a > 0 && b > 0){
 				c = 2 * p - a - b; three_sides(a, b, c, num);
 			}
-			if (a > 0 && c > 0)
-			{
+			if (a > 0 && c > 0){
 				b = 2 * p - a - c; three_sides(a, b, c, num);
 			}
-			if (c > 0 && b > 0)
-			{
+			if (c > 0 && b > 0){
 				a = 2 * p - b - c; three_sides(a, b, c, num);
 			}
 		}
@@ -144,59 +135,47 @@ int main(void)
 				C = 180 - A - B; goto here;
 			}
 			if (b > 0 && c > 0) {
-				if (A > 0)
-				{
+				if (A > 0){
 					two_sides_corn(1, num);
 				}
-				if (B > 0)
-				{
+				if (B > 0){
 					two_sides_corn_wrong(1, num);
 				}
-				if (C > 0)
-				{
+				if (C > 0){
 					two_sides_corn_wrong(1, num);
 				}
-				if (num[15] != INF && num[16] != INF && num[17] != INF && num[18] != INF && num[13] == INF && num[14] == INF)
-				{
+				if (num[15] != INF && num[16] != INF && num[17] != INF && num[18] != INF && num[13] == INF && num[14] == INF){
 					a = sqrt(pow(num[15] - num[17], 2) + pow(num[16] - num[18], 2));
 					three_sides(a, b, c, num);
 				}
 				
 			}
 			if (a > 0 && c > 0) {
-				if (A > 0)
-				{
+				if (A > 0){
 					two_sides_corn_wrong(2, num);
 				}
-				if (B > 0)
-				{
+				if (B > 0){
 					two_sides_corn(2, num);
 				}
-				if (C > 0)
-				{
+				if (C > 0){
 					two_sides_corn_wrong(2, num);
 				}
-				if (num[15] == INF && num[16] == INF && num[17] != INF && num[18] != INF && num[13] != INF && num[14] != INF)
-				{
+				if (num[15] == INF && num[16] == INF && num[17] != INF && num[18] != INF && num[13] != INF && num[14] != INF){
 					b = sqrt(pow(num[13] - num[17], 2) + pow(num[14] - num[18], 2));
 					three_sides(a, b, c, num);
 				}
 			}
 			if (b > 0 && a > 0) {
-				if (A > 0)
-				{
+				if (A > 0){
 					two_sides_corn_wrong(3, num);
 				}
-				if (B > 0)
-				{
+				if (B > 0){
 					two_sides_corn_wrong(3, num);
 				}
-				if (C > 0)
-				{
+				if (C > 0){
 					two_sides_corn(3, num);
 				}
-				if (num[15] != INF && num[16] != INF && num[17] == INF && num[18] == INF && num[13] != INF && num[14] != INF)
-				{
+				if (num[15] != INF && num[16] != INF && num[17] == INF && num[18] == INF && num[13] != INF && num[14] != INF){
 					c = sqrt(pow(num[15] - num[13], 2) + pow(num[16] - num[14], 2));
 					three_sides(a, b, c, num);
 				}
@@ -238,12 +217,10 @@ int main(void)
 				side_two_h_wrong(2, num);
 			}
 		}
-		if (ma > 0 && mb > 0 && mc > 0)
-		{
+		if (ma > 0 && mb > 0 && mc > 0){
 			three_med(num);
 		}
-		if (ma > 0 || mb > 0 || mc > 0)
-		{
+		if (ma > 0 || mb > 0 || mc > 0){
 			if (a > 0 && b > 0) {
 				if (ma > 0) {
 					two_s_med_wrong(3, num);
@@ -278,28 +255,19 @@ int main(void)
 				}
 			}
 		}
-		if (ha > 0 && hb > 0 && hc > 0)
-		{
-			num[10] = ha;
-			num[11] = hb;
-			num[12] = hc;
-			three_h(num);
+		if (ha > 0 && hb > 0 && hc > 0){
+			num[10] = ha; num[11] = hb; num[12] = hc; three_h(num);
 		}
 		bool xy = true;
-		for (int i = 13; i < 19; i++)
-		{
-			if (num[i] == INF)
-			{
-				xy = false;
-				break;
+		for (int i = 13; i < 19; i++){
+			if (num[i] == INF){
+				xy = false; break;
 			}
 		}
-		if (xy)
-		{
+		if (xy){
 			a = sqrt(pow(num[17] - num[15], 2) + pow(num[18] - num[16], 2));
 			b = sqrt(pow(num[13] - num[17], 2) + pow(num[14] - num[18], 2));
-			c = sqrt(pow(num[13] - num[15], 2) + pow(num[14] - num[16], 2));
-			three_sides(a, b, c, num);
+			c = sqrt(pow(num[13] - num[15], 2) + pow(num[14] - num[16], 2)); three_sides(a, b, c, num);
 		}
 	}
 		printf("ќшибка!\n");
@@ -314,82 +282,64 @@ void three_sides(float a, float b, float c, float num[])
 	}
 	num[1] = a; num[2] = b; num[3] = c;
 	if (num[7] == INF) {
-		ma = (1.0 / 2)*(sqrt(2 * pow(b, 2) + 2 * pow(c, 2) - pow(a, 2)));
-		num[7] = ma;
+		ma = (1.0 / 2)*(sqrt(2 * pow(b, 2) + 2 * pow(c, 2) - pow(a, 2))); num[7] = ma;
 	}
 	if (num[9] == INF) {
-		mb = (1.0 / 2)*(sqrt(2 * pow(b, 2) + 2 * pow(a, 2) - pow(c, 2)));
-		num[9] = mb;
+		mb = (1.0 / 2)*(sqrt(2 * pow(b, 2) + 2 * pow(a, 2) - pow(c, 2))); num[9] = mb;
 	}
 	if (num[8] == INF) {
-		mc = sqrt(2 * pow(c, 2) + 2 * pow(a, 2) - pow(b, 2))/2;
-		num[8] = mc;
+		mc = sqrt(2 * pow(c, 2) + 2 * pow(a, 2) - pow(b, 2))/2; num[8] = mc;
 	}
 	if (num[20] == INF) {
-		p = (1.0 / 2)*(a + b + c);
-		num[20] = p;
+		p = (1.0 / 2)*(a + b + c); num[20] = p;
 	}
 	if (num[10] == INF) {
-		ha = (2 * sqrt(p * (p - a)*(p - b)*(p - c))) / a;
-		num[10] = ha;
+		ha = (2 * sqrt(p * (p - a)*(p - b)*(p - c))) / a; num[10] = ha;
 	}
 	if (num[11] == INF) {
-		hb = (2 * sqrt(p * (p - a)*(p - b)*(p - c))) / b;
-		num[11] = hb;
+		hb = (2 * sqrt(p * (p - a)*(p - b)*(p - c))) / b; num[11] = hb;
 	}
 	if (num[12] == INF) {
-		hc = (2 * sqrt(p * (p - a)*(p - b)*(p - c))) / c;
-		num[12] = hc;
+		hc = (2 * sqrt(p * (p - a)*(p - b)*(p - c))) / c; num[12] = hc;
 	}
 	if (num[19] == INF) {
-		s = sqrt(p*(p - a)*(p - b)*(p - c));
-		num[19] = s;
+		s = sqrt(p*(p - a)*(p - b)*(p - c)); num[19] = s;
 	}
 	if (num[4] == INF) {
 		A = acos((pow(b, 2) + pow(c, 2) - pow(a, 2)) / (2 * b*c));
-		num[4] = A;
+		num[4] = A; num[4] = num[4] * 180.0 / M_PI;
 	}
 	if (num[5] == INF) {
 		B = acos((pow(a, 2) + pow(c, 2) - pow(b, 2)) / (2 * a *c));
-		num[5] = B;
+		num[5] = B; num[5] = num[5] * 180.0 / M_PI;
 	}
 	if (num[6] == INF) {
 		C = acos((pow(a, 2) + pow(b, 2) - pow(c, 2)) / (2 * a*b));
-		num[6] = C;
+		num[6] = C; num[6] = num[6] * 180.0 / M_PI;
 	}
-	if (!(num[13] == num[15] && num[15] == num[17]) && !(num[14] == num[16] && num[16] == num[18]))
-	{
-		if ((num[13] != INF && num[14] != INF) && (num[15] != INF && num[16] != INF))
-		{
+	if (!(num[13] == num[15] && num[15] == num[17]) && !(num[14] == num[16] && num[16] == num[18])){
+		if ((num[13] != INF && num[14] != INF) && (num[15] != INF && num[16] != INF)){
 			c = sqrt(pow(num[13] - num[15], 2) + pow(num[14] - num[16], 2));
-			if (c != num[3])
-			{
-				for (int i = 13; i < 19; i++)
-				{
+			if (c != num[3]){
+				for (int i = 13; i < 19; i++){
 					num[i] = INF;
 				}
 			}
 
 		}
-		if ((num[13] != INF && num[14] != INF) && (num[17] != INF && num[18] != INF))
-		{
+		if ((num[13] != INF && num[14] != INF) && (num[17] != INF && num[18] != INF)){
 			b = sqrt(pow(num[13] - num[17], 2) + pow(num[14] - num[18], 2));
-			if (b != num[2])
-			{
-				for (int i = 13; i < 19; i++)
-				{
+			if (b != num[2]){
+				for (int i = 13; i < 19; i++){
 					num[i] = INF;
 				}
 			}
 
 		}
-		if ((num[17] != INF && num[18] != INF) && (num[15] != INF && num[16] != INF))
-		{
+		if ((num[17] != INF && num[18] != INF) && (num[15] != INF && num[16] != INF)){
 			a = sqrt(pow(num[17] - num[15], 2) + pow(num[18] - num[16], 2));
-			if (a != num[1])
-			{
-				for (int i = 13; i < 19; i++)
-				{
+			if (a != num[1]){
+				for (int i = 13; i < 19; i++){
 					num[i] = INF;
 				}
 			}
@@ -400,33 +350,26 @@ void three_sides(float a, float b, float c, float num[])
 }
 void side_two_corn(int indx, float num[])
 {
-	num[4] = (num[4] * M_PI) / 180.0;
-	num[5] = (num[5] * M_PI) / 180.0;
-	num[6] = (num[6] * M_PI) / 180.0;
-	switch (indx)
-	{
-	case 1: num[2] = (num[1] * sin(num[5])) / (sin(num[4])); num[3] = (num[1] * sin(num[6])) / (sin(num[4])); break;
-	case 2: num[1] = (num[2] * sin(num[4])) / (sin(num[5])); num[3] = (num[2] * sin(num[6])) / (sin(num[5])); break;
-	case 3: num[2] = (num[3] * sin(num[5])) / (sin(num[6])); num[1] = (num[3] * sin(num[4])) / (sin(num[6])); break;
+	
+	switch (indx){
+	case 2: num[5] = (num[5] * M_PI) / 180.0; num[4] = (num[4] * M_PI) / 180.0; num[6] = (num[6] * M_PI) / 180.0; num[1] = (num[2] * sin(num[4])) / (sin(num[5])); num[3] = (num[2] * sin(num[6])) / (sin(num[5])); num[5] = (num[5] * 180.0) / M_PI; num[4] = (num[4] * 180.0) / M_PI; num[6] = (num[6] * 180.0) / M_PI; break;
+	case 1: num[5] = (num[5] * M_PI) / 180.0; num[4] = (num[4] * M_PI) / 180.0; num[6] = (num[6] * M_PI) / 180.0; num[2] = (num[1] * sin(num[5])) / (sin(num[4])); num[3] = (num[1] * sin(num[6])) / (sin(num[4])); num[5] = (num[5] * 180.0) / M_PI; num[4] = (num[4] * 180.0) / M_PI; num[6] = (num[6] * 180.0) / M_PI; break;
+	case 3: num[5] = (num[5] * M_PI) / 180.0; num[4] = (num[4] * M_PI) / 180.0; num[6] = (num[6] * M_PI) / 180.0; num[2] = (num[3] * sin(num[5])) / (sin(num[6])); num[1] = (num[3] * sin(num[4])) / (sin(num[6])); num[5] = (num[5] * 180.0) / M_PI; num[4] = (num[4] * 180.0) / M_PI; num[6] = (num[6] * 180.0) / M_PI; break;
 	}
 	three_sides(num[1], num[2], num[3], num);
 }
 void two_sides_corn(int indx2, float num[])
 {
-	switch (indx2)
-	{
-	case 1:num[4] = (num[4] * M_PI) / 180.0; num[1] = sqrt(pow(num[2], 2) + pow(num[3], 2) - 2 * num[2] * num[3] * cos(num[4])); break;
-	case 2:num[5] = (num[5] * M_PI) / 180.0; num[2] = sqrt(pow(num[1], 2) + pow(num[3], 2) - 2 * num[1] * num[3] * cos(num[5])); break;
-	case 3:num[6] = (num[6] * M_PI) / 180.0; num[3] = sqrt(pow(num[1], 2) + pow(num[2], 2) - 2 * num[1] * num[2] * cos(num[6])); break;
+	switch (indx2){
+	case 1:num[4] = (num[4] * M_PI) / 180.0; num[1] = sqrt(pow(num[2], 2) + pow(num[3], 2) - 2 * num[2] * num[3] * cos(num[4])); num[4] = num[4] * 180.0 / M_PI; break;
+	case 2:num[5] = (num[5] * M_PI) / 180.0; num[2] = sqrt(pow(num[1], 2) + pow(num[3], 2) - 2 * num[1] * num[3] * cos(num[5])); num[5] = num[5] * 180.0 / M_PI; break;
+	case 3:num[6] = (num[6] * M_PI) / 180.0; num[3] = sqrt(pow(num[1], 2) + pow(num[2], 2) - 2 * num[1] * num[2] * cos(num[6])); num[6] = num[6] * 180.0 / M_PI; break;
 	}
-
 	three_sides(num[1], num[2], num[3], num);
-
 }
 void side_two_h(int indx3, float num[])
 {
-	switch (indx3)
-	{
+	switch (indx3){
 	case 1: num[6] = asin(num[11] / num[1]); num[5] = asin(num[12] / num[1]); num[4] = 180 - num[5] - num[6]; break;
 	case 2: num[4] = asin(num[10] / num[2]); num[6] = asin(num[12] / num[2]); num[5] = 180 - num[4] - num[6]; break;
 	case 3: num[4] = asin(num[11] / num[3]); num[5] = asin(num[10] / num[3]); num[6] = 180 - num[5] - num[4]; break;
@@ -436,56 +379,38 @@ void side_two_h(int indx3, float num[])
 void side_two_h_wrong(int indx4, float num[])
 {
 	float ss;
-	switch (indx4)
-	{
-	case 1: if (num[11] > 0)
-	{
-		ss = num[11] / num[1];
-		num[6] = asin(ss) * 180.0 / M_PI;
-		num[2] = num[10] / ss;
-		two_sides_corn(3, num);
+	switch (indx4){
+	case 1: if (num[11] > 0){
+		ss = num[11] / num[1]; num[6] = asin(ss) * 180.0 / M_PI; num[2] = num[10] / ss; two_sides_corn(3, num);
 	}
 			else
 	{
-		ss = num[12] / num[1];
-		num[5] = asin(ss) * 180.0 / M_PI;
-		num[3] = num[10] / ss;
+		ss = num[12] / num[1]; num[5] = asin(ss) * 180.0 / M_PI; num[3] = num[10] / ss; 
 		two_sides_corn(2, num);
 	}		break;
-	case 2: if (num[10] > 0)
-	{
-		ss = num[10] / num[2];
-		num[6] = asin(ss) * 180.0 / M_PI;
-		num[1] = num[11] / ss;
-		two_sides_corn(3, num);
+	case 2: if (num[10] > 0){
+		ss = num[10] / num[2]; num[6] = asin(ss) * 180.0 / M_PI;
+		num[1] = num[11] / ss; two_sides_corn(3, num);
 	}
 			else
 	{
-		ss = num[12] / num[2];
-		num[4] = asin(ss) * 180.0 / M_PI;
-		num[3] = num[10] / ss;
-		two_sides_corn(1, num);
+		ss = num[12] / num[2]; num[4] = asin(ss) * 180.0 / M_PI;
+		num[3] = num[10] / ss; two_sides_corn(1, num);
 	} break;
-	case 3: if (num[10] > 0)
-	{
-		ss = num[10] / num[3];
-		num[5] = asin(ss) * 180.0 / M_PI;
-		num[3] = num[10] / ss;
-		two_sides_corn(2, num);
+	case 3: if (num[10] > 0){
+		ss = num[10] / num[3]; num[5] = asin(ss) * 180.0 / M_PI;
+		num[3] = num[10] / ss; two_sides_corn(2, num);
 	}
 			else
 	{
-		ss = num[11] / num[3];
-		num[4] = asin(ss) * 180.0 / M_PI;
-		num[2] = num[12] / ss;
-		two_sides_corn(1, num);
+		ss = num[11] / num[3]; num[4] = asin(ss) * 180.0 / M_PI;
+		num[2] = num[12] / ss; two_sides_corn(1, num);
 	}break;
 	}
 }
 void two_s_med(int indx5, float num[])
 {
-	switch (indx5)
-	{
+	switch (indx5){
 	case 1: num[1] = sqrt(2 * pow(num[2], 2) + 2 * pow(num[3], 2) - pow(2 * num[7], 2)); three_sides(num[1], num[2], num[3], num); break;
 	case 2:	num[2] = sqrt(2 * pow(num[1], 2) + 2 * pow(num[3], 2) - pow(2 * num[8], 2)); three_sides(num[1], num[2], num[3], num); break;
 	case 3:	num[3] = sqrt(2 * pow(num[2], 2) + 2 * pow(num[1], 2) - pow(2 * num[9], 2)); three_sides(num[1], num[2], num[3], num); break;
@@ -493,10 +418,8 @@ void two_s_med(int indx5, float num[])
 }
 void two_s_med_wrong(int indx6, float num[])
 {
-	switch (indx6)
-	{
-	case 1: if (num[8] > 0)
-	{
+	switch (indx6){
+	case 1: if (num[8] > 0){
 		num[1] = sqrt((pow(num[2], 2) + pow(2 * num[8], 2) - 2 * pow(num[3], 2)) / 2);  three_sides(num[1], num[2], num[3], num);
 	}
 			else
@@ -504,8 +427,7 @@ void two_s_med_wrong(int indx6, float num[])
 		num[1] = sqrt((pow(num[3], 2) + pow(2 * num[9], 2) - 2 * pow(num[2], 2)) / 2);  three_sides(num[1], num[2], num[3], num);
 	}
 			break;
-	case 2:	 if (num[7] > 0)
-	{
+	case 2:	 if (num[7] > 0){
 		num[2] = sqrt((pow(num[1], 2) + pow(2 * num[7], 2) - 2 * pow(num[3], 2)) / 2);  three_sides(num[1], num[2], num[3], num);
 	}
 			else
@@ -513,8 +435,7 @@ void two_s_med_wrong(int indx6, float num[])
 		num[2] = sqrt((pow(num[3], 2) + pow(2 * num[9], 2) - 2 * pow(num[1], 2)) / 2);  three_sides(num[1], num[2], num[3], num);
 	}
 			break;
-	case 3:	 if (num[7] > 0)
-	{
+	case 3:	 if (num[7] > 0){
 		num[3] = sqrt((pow(num[1], 2) + pow(2 * num[7], 2) - 2 * pow(num[2], 2)) / 2);  three_sides(num[1], num[2], num[3], num);
 	}
 			else
@@ -533,51 +454,36 @@ void three_med(float num[])
 }
 void vivod(float num[])
 {
-	printf(" a: %.3f\n", num[1]);
-	printf(" b: %.3f\n", num[2]);
-	printf(" c: %.3f\n", num[3]);
-	printf(" A: %.3f\n", (num[4]*180.0)/M_PI);
-	printf(" B: %.3f\n", (num[5]*180.0)/M_PI);
-	printf(" C: %.3f\n", (num[6]*180.0)/M_PI);
-	printf(" ma: %f\n", num[7]);
-	printf(" mb: %f\n", num[8]);
-	printf(" mc: %f\n", num[9]);
-	printf(" ha: %f\n", num[10]);
-	printf(" hb: %f\n", num[11]);
-	printf(" hc: %f\n", num[12]);
-	if (num[13] != INF)
-	{
+	printf(" a: %.3f\n", num[1]); printf(" b: %.3f\n", num[2]);
+	printf(" c: %.3f\n", num[3]); printf(" A: %.3f\n", num[4]);
+	printf(" B: %.3f\n", num[5]); printf(" C: %.3f\n", num[6]);
+	printf(" ma: %f\n", num[7]); printf(" mb: %f\n", num[8]);
+	printf(" mc: %f\n", num[9]); printf(" ha: %f\n", num[10]);
+	printf(" hb: %f\n", num[11]); printf(" hc: %f\n", num[12]);
+	if (num[13] != INF){
 		printf(" xa: %f\n", num[13]);
 	}
-	if (num[14] != INF)
-	{
+	if (num[14] != INF){
 		printf(" ya: %f\n", num[14]);
 	}
-	if (num[15] != INF)
-	{
+	if (num[15] != INF){
 		printf(" xb: %f\n", num[15]);
 	}
-	if (num[16] != INF)
-	{
+	if (num[16] != INF){
 		printf(" yb: %f\n", num[16]);
 	}
-	if (num[17] != INF)
-	{
+	if (num[17] != INF){
 		printf(" xc: %f\n", num[17]);
 	}
-	if (num[18] != INF)
-	{
+	if (num[18] != INF){
 		printf(" yc: %f\n", num[18]);
 	}
-	printf(" S: %f\n", num[19]);
-	printf(" p: %f\n", num[20]);
-	system("pause");
-	exit(0);
+	printf(" S: %f\n", num[19]); printf(" p: %f\n", num[20]);
+	system("pause"); exit(0);
 }
 void two_sides_s(int n, float num[])
 {
-	switch (n)
-	{
+	switch (n){
 	case 1: num[11] = 2 * num[19] / num[2]; num[12] = 2 * num[19] / num[3]; side_two_h_wrong(2, num); break;
 	case 2: num[10] = 2 * num[19] / num[1]; num[12] = 2 * num[19] / num[3]; side_two_h_wrong(3, num); break;
 	case 3: num[11] = 2 * num[19] / num[2]; num[10] = 2 * num[19] / num[1]; side_two_h_wrong(1, num); break;
@@ -587,59 +493,49 @@ void three_h(float num[])
 {
 	float s, a, b, c;
 	s = pow(num[11] * num[10] * num[12], 2) / sqrt(2 * pow(num[11] * num[10] * num[12], 2)*(pow(num[10], 2) + pow(num[11], 2) + pow(num[12], 2)) - (pow(num[10], 4)*pow(num[11], 4) + pow(num[10], 4)*pow(num[12], 4) + pow(num[11], 4)*pow(num[12], 4)));
-	a = 2 * s / num[10];
-	b = 2 * s / num[11];
-	c = 2 * s / num[12];
-	three_sides(a, b, c, num);
+	a = 2 * s / num[10]; b = 2 * s / num[11]; c = 2 * s / num[12]; three_sides(a, b, c, num);
 }
 void two_sides_corn_wrong(int indx7, float num[])
 {
-	num[4] = (num[4] * M_PI) / 180.0;
-	num[5] = (num[5] * M_PI) / 180.0;
-	num[6] = (num[6] * M_PI) / 180.0;
-	switch (indx7)
-	{
-	case 1: if (num[5] > INF)
-	{
+	switch (indx7){
+	case 1: if (num[5] > INF){
+		num[5] = (num[5] * M_PI) / 180.0;
 		num[6] = asin(num[3] * sin(num[5]) / num[2]) * 180.0 / M_PI;
-		num[5] = num[5] * 180.0 / M_PI;
-		num[4] = 180 - num[5] - num[6];
+		num[5] = num[5] * 180.0 / M_PI; num[4] = 180 - num[5] - num[6];
 		two_sides_corn(1, num);
 	}
 			else
 	{
+		num[6] = (num[6] * M_PI) / 180.0;
 		num[5] = asin(num[2] * sin(num[6]) / num[3]) * 180.0 / M_PI;
-		num[6] = num[6] * 180.0 / M_PI;
-		num[4] = 180 - num[5] - num[6];
+		num[6] = num[6] * 180.0 / M_PI; num[4] = 180 - num[5] - num[6];
 		two_sides_corn(1, num);
 	}
 
-	case 2:  if (num[4] > INF)
-	{
+	case 2:  if (num[4] > INF){
+		num[4] = (num[4] * M_PI) / 180.0;
 		num[6] = asin(num[3] * sin(num[4]) / num[1]) * 180.0 / M_PI;
-		num[4] = num[4] * 180.0 / M_PI;
-		num[5] = 180 - num[4] - num[6];
+		num[4] = num[4] * 180.0 / M_PI; num[5] = 180 - num[4] - num[6];
 		two_sides_corn(2, num);
 	}
 			 else
 	{
+		num[6] = (num[6] * M_PI) / 180.0;
 		num[4] = asin(num[1] * sin(num[6]) / num[3]) * 180.0 / M_PI;
-		num[6] = num[6] * 180.0 / M_PI;
-		num[5] = 180 - num[4] - num[6];
+		num[6] = num[6] * 180.0 / M_PI; num[5] = 180 - num[4] - num[6];
 		two_sides_corn(2, num);
 	}
-	case 3:  if (num[4] > INF)
-	{
+	case 3:  if (num[4] > INF){
+		num[4] = (num[4] * M_PI) / 180.0;
 		num[5] = asin(num[2] * sin(num[4]) / num[1]) * 180.0 / M_PI;
-		num[4] = num[4] * 180.0 / M_PI;
-		num[6] = 180 - num[5] - num[4];
+		num[4] = num[4] * 180.0 / M_PI; num[6] = 180 - num[5] - num[4];
 		two_sides_corn(3, num);
 	}
 			 else
 	{
+		num[5] = (num[5] * M_PI) / 180.0;
 		num[4] = asin(num[1] * sin(num[5]) / num[2]) * 180.0 / M_PI;
-		num[5] = num[5] * 180.0 / M_PI;
-		num[6] = 180 - num[5] - num[4];
+		num[5] = num[5] * 180.0 / M_PI; num[6] = 180 - num[5] - num[4];
 		two_sides_corn(3, num);
 	}
 	}
